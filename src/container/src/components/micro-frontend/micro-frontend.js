@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
+import { Flex, Spinner, Text, Box } from '@chakra-ui/core';
 
 function MicroFrontend({ name, host }) {
   const mfRenderMethodName = `render${name}`;
@@ -48,7 +49,17 @@ function MicroFrontend({ name, host }) {
   }, [name]);
 
   return (
-    <main id={name}></main>
+    <main id={name}>
+      <Flex justifyContent={"center"}>
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Flex>
+    </main>
   );
 }
 
