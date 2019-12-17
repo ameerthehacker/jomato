@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Restaurant from '../restaurant/restaurant';
-import { Flex } from '@chakra-ui/core';
+import { Flex, Box } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
-import './restaurants.css';
 
 function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
@@ -28,11 +27,11 @@ function Restaurants() {
     <Flex p={10} direction={"row"} wrap={"wrap"}>
      {restaurants.map((restaurant) => {
        return (
-        <div key={restaurant.id} className="restaurant-container">
+        <Box p={5} key={restaurant.id} className="restaurant-container">
           <Link to={`/restaurants/${restaurant.id}`}>
             <Restaurant restaurant={restaurant} />
           </Link>
-        </div>
+        </Box>
        );
      })}
     </Flex>
