@@ -2,7 +2,6 @@ import React, { useEffect, useCallback } from 'react';
 
 function MicroFrontend({ name, host }) {
   const mfRenderMethodName = `render${name}`;
-  const mfUnmountMethodName = `unmount${name}`;
   const mountMicroFrontend = useCallback(() => {
     return new Promise((resolve, reject) => {
       if(!window[mfRenderMethodName]) {
@@ -40,17 +39,13 @@ function MicroFrontend({ name, host }) {
         resolve();
       }
     });
-  }, [name, host, mfRenderMethodName]);
+  }, [name]);
 
   useEffect(() => {
-    console.log(`mounting mf ${name}`);
-   
     mountMicroFrontend().then(() => {
       window[mfRenderMethodName](name);
     });
-
-    return () => window[mfUnmountMethodName](name);
-  }, [name, host, mfUnmountMethodName, mfRenderMethodName, mountMicroFrontend]);
+  }, [name]);
 
   return (
     <main id={name}></main>

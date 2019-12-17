@@ -1,6 +1,20 @@
 import React from 'react';
-import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { 
+  HashRouter, 
+  Switch, 
+  Route, 
+  Redirect 
+} from 'react-router-dom';
 import MicroFrontend from '../../components/micro-frontend';
+
+const Restaurants = <MicroFrontend 
+                      name={"MfRestaurants"} 
+                      host={"/restaurants"} 
+                    />;
+const RestaurantDetails = <MicroFrontend 
+                            name={"MfRestaurantDetails"}
+                            host={"/restaurant-details"}
+                          />;                  
 
 function App() {
   return (
@@ -12,16 +26,10 @@ function App() {
             <Redirect to={"/restaurants"} />
           </Route>
           <Route path={"/restaurants"} exact>
-            <MicroFrontend 
-              name={"MfRestaurants"} 
-              host={"/restaurants"} 
-            />
+            {Restaurants}
           </Route>
           <Route path={"/restaurants/:id"} exact>
-            <MicroFrontend 
-              name={"MfRestaurantDetails"}
-              host={"/restaurant-details"}
-            />
+            {RestaurantDetails}
           </Route>
         </Switch>
       </HashRouter>
