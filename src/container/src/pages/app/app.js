@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import MicroFrontend from '../../components/micro-frontend';
 import DefaultLayout from '../../components/default-layout';
+import About from '../about';
 
 const Restaurants = <MicroFrontend 
                       name={"MfRestaurants"} 
@@ -24,6 +25,9 @@ function App() {
         <DefaultLayout>
         <Route path={"/"} exact>
           <Redirect to={"/restaurants"} />
+        </Route>
+        <Route path={"/about"} exact>
+          <About />
         </Route>
         <Route path={"/restaurants"} exact>
           {Restaurants}
