@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { Flex, Spinner, Text, Box } from '@chakra-ui/core';
+import { Flex, Spinner } from '@chakra-ui/core';
 
 function MicroFrontend({ name, host }) {
   const mfRenderMethodName = `render${name}`;
