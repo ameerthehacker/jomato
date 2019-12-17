@@ -12,10 +12,16 @@ function App() {
             <Redirect to={"/restaurants"} />
           </Route>
           <Route path={"/restaurants"} exact>
-            <MicroFrontend name={"restaurants"} />
+            <MicroFrontend 
+              name={"MfRestaurants"} 
+              host={"/restaurants"} 
+            />
           </Route>
           <Route path={"/restaurants/:id"} exact>
-            <MicroFrontend name={"restaurant-details"} />
+            <MicroFrontend 
+              name={"MfRestaurantDetails"}
+              host={"/restaurant-details"}
+            />
           </Route>
         </Switch>
       </HashRouter>

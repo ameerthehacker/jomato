@@ -3,12 +3,12 @@ import ReactDom from 'react-dom';
 import App from './pages/app';
 
 const mfName = 'MfRestaurants';
-const mfRenderMethod = `render${mfName}`;
+const mfRenderMethodName = `render${mfName}`;
 
 if(process.env.NODE_ENV === 'development') {
-  window['mfRenderMethod'] = mfRenderMethod; 
+  window['mfRenderMethodName'] = mfRenderMethodName; 
 }
 
-window[mfRenderMethod] = () => {
+window[mfRenderMethodName] = () => {
   ReactDom.render(<App />, document.getElementById(mfName));
 };
