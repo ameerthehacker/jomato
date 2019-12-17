@@ -6,6 +6,7 @@ import {
   Redirect 
 } from 'react-router-dom';
 import MicroFrontend from '../../components/micro-frontend';
+import DefaultLayout from '../../components/default-layout';
 
 const Restaurants = <MicroFrontend 
                       name={"MfRestaurants"} 
@@ -18,22 +19,21 @@ const RestaurantDetails = <MicroFrontend
 
 function App() {
   return (
-    <div>
-      This is the layout
-      <HashRouter basename={process.env.BASE_URL}>
-        <Switch>
-          <Route path={"/"} exact>
-            <Redirect to={"/restaurants"} />
-          </Route>
-          <Route path={"/restaurants"} exact>
-            {Restaurants}
-          </Route>
-          <Route path={"/restaurants/:id"} exact>
-            {RestaurantDetails}
-          </Route>
-        </Switch>
-      </HashRouter>
-    </div>
+    <HashRouter basename={process.env.BASE_URL}>
+      <Switch>
+        <DefaultLayout>
+        <Route path={"/"} exact>
+          <Redirect to={"/restaurants"} />
+        </Route>
+        <Route path={"/restaurants"} exact>
+          {Restaurants}
+        </Route>
+        <Route path={"/restaurants/:id"} exact>
+          {RestaurantDetails}
+        </Route>
+        </DefaultLayout>
+      </Switch>
+    </HashRouter>
   )
 }
 
