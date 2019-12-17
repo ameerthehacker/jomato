@@ -1,0 +1,9 @@
+{
+  "name": "jomato",
+  "version": "0.0.1",
+  "description": "A zomato clone to demonstrate micro frontends",
+  "repository": "https://github.com/ameerthehacker/jomato.git",
+  "author": "ameerthehacker",
+  "license": "MIT",
+  "private": true
+}
