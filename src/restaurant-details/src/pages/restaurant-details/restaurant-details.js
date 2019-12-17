@@ -35,7 +35,7 @@ function RestaurantDetails() {
       <List p={20} spacing={3}>
         {reviews.map(review => (
           <ListItem key={review.id}>
-            {review.review_text}
+            {`* ${review.review_text}`}
           </ListItem>
         ))}
       </List>
